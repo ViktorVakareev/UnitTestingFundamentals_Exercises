@@ -18,7 +18,7 @@ namespace SchoolExercise
                 throw new ArgumentException($"Name: {name} - Invalid input");
             }
             Name = name;
-            SchoolId = School.GetRandomNumberInRange();
+            SchoolId = schoolId;
         }
        
     }

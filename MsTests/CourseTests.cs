@@ -1,10 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SchoolExercise;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MsTests
 {
@@ -32,8 +28,20 @@ namespace MsTests
             course.JoinCource(student2);
             int listOfStudentsInitialCount = course.studentsList.Count;
             course.LeaveCource("Koko Musa");
-            Assert.AreEqual(listOfStudentsInitialCount, course.studentsList.Count - 1 );
+            Assert.AreEqual(listOfStudentsInitialCount, course.studentsList.Count + 1 );
         }
+        [TestMethod]
+        public void StudentNotAllowedToJoinWhenCourseIsFull()
+        {
+            Course course = new Course();
+            for (int i = 0; i < 30; i++)
+            {                
+                course.JoinCource(new Student($"Joko Rosic {i}", School.GetRandomNumberInRange()));
+            }
+
+            Assert.ThrowsException<ArgumentException>(() => course.JoinCource(new Student($"Muka Jukic", School.GetRandomNumberInRange())));
+        }
+       
 
     }
 }

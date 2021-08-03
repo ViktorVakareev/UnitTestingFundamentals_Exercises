@@ -19,16 +19,16 @@ namespace SchoolExercise
             studentsList.Add(student);
         }
         public void LeaveCource(string name)
-        {
-            foreach (var pupil in studentsList)
-            {
-                if (pupil.Name.Equals(name))
+        {          
+                
+                if (!studentsList.Any(x => x.Name.Equals(name)))
                 {
                     throw new ArgumentException($"Student with name {name} doesn't exist!");
-                }
-            }           
+                }            
+             
+            
+            studentsList.Remove(studentsList.First(x => x.Name.Equals(name)));            
 
-            studentsList.Remove(studentsList.First(x => x.Name.Equals(name)));
         }
 
     }    
