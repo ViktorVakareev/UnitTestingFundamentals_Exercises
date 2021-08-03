@@ -24,6 +24,7 @@ namespace MsTests
 
             Assert.AreEqual(10, _school.studentsList.Count);
         }
+
         [TestMethod]
         public void TryAddingExistingStudent()
         {
@@ -38,37 +39,7 @@ namespace MsTests
 
             Assert.ThrowsException<ArgumentException>(() => _school.AddStudent(name));
         }
-        [TestMethod]
-        public void TryAddingStudentIdUnderRange()
-        {
-            int Id = 9999;                          
-
-            Assert.ThrowsException<ArgumentException>(() => new School(Id));
-        }
-        [TestMethod]
-        public void TryAddingStudentIdAboveRange()
-        {
-            int Id = 100_000;
-
-            Assert.ThrowsException<ArgumentException>(() => new School(Id));
-        }
-        [TestMethod]
-        public void TryAddingStudentWithNullName()
-        {
-            var _school = new School();
-            string name = null;
-           
-            Assert.ThrowsException<ArgumentException>(() => _school.AddStudent(name));
-        }
-        [TestMethod]
-        public void TryAddingStudentWithEmptyName()
-        {
-
-            var _school = new School();
-            string name = "";
-
-            Assert.ThrowsException<ArgumentException>(() => _school.AddStudent(name));
-        }
+                
        
     }
 }

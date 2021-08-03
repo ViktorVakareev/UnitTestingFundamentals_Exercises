@@ -10,15 +10,7 @@ namespace SchoolExercise
         public List<Student> studentsList;
         private int currentId;
 
-        public School(int Id)
-        {
-            if (Id < 10000 || Id > 99999)
-            {
-                throw new ArgumentException($"Invalid ID!");
-            }
-            studentsList = new List<Student>();
-            currentId = Id;
-        }
+        
         public School()
         {
             
@@ -34,29 +26,13 @@ namespace SchoolExercise
                 {
                     throw new ArgumentException($"Student with name {name} already exists!");
                 }
-                if (pupil.SchoolId < 10000 || pupil.SchoolId > 99999)
-                {
-                    throw new ArgumentException($"Invalid ID!");
-                }
-            }
-
-            var student = new Student(name, currentId);
-            studentsList.Add(student);
-        }
-        public void AddStudent(string name, int Id)
-        {
-            foreach (var pupil in studentsList)
-            {
-                if (pupil.Name.Equals(name))
-                {
-                    throw new ArgumentException($"Student with name {name} already exists!");
-                }
                 
             }
 
             var student = new Student(name, currentId);
             studentsList.Add(student);
         }
+        
         public static int GetRandomNumberInRange()
         {
             var rand = new Random();

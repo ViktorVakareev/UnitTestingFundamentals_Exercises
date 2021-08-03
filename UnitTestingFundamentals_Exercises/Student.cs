@@ -13,13 +13,13 @@ namespace SchoolExercise
 
         public Student(string name, int schoolId)
         {
-            if (String.IsNullOrEmpty(name))
+            if (String.IsNullOrEmpty(name)|| schoolId < 10000 || schoolId > 99999)
             {
-                throw new ArgumentException($"Name: {name} - Invalid input");
+                throw new ArgumentException("Invalid input");
             }
             Name = name;
             SchoolId = schoolId;
         }
-       
+        
     }
 }
